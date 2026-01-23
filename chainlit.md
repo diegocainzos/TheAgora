@@ -47,7 +47,7 @@ The Agora features a curated selection of thinkers:
 
 * **`philosopher.py`**: The Soul
     * Contains the `Philosopher` class and `Pydantic` schemas (`PhilosopherResponse`).
-* **`test2.py`**: The Body
+* **`app.py`**: The Body
     * Manages `Chainlit` lifecycle, UI widgets, and the dynamic `StateGraph`.
 
 ---

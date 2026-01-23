@@ -48,7 +48,7 @@ The Agora features custom avatars for each thinker, located in `public/avatars/`
 
 * **`philosopher.py`**: The Soul.
     * Contains the `Philosopher` class and `Pydantic` schemas (`PhilosopherResponse`).
-* **`test2.py`**: The Body.
+* **`app.py`**: The Body.
     * Manages `Chainlit` lifecycle, UI widgets, and the dynamic `StateGraph`.
 
 ---
