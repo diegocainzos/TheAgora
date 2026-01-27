@@ -198,10 +198,4 @@ async def on_chat_end():
 
 @cl.password_auth_callback
 def auth(username, password):
-    # simple auth for now, using env vars for security
-    env_user = os.getenv("CHAINLIT_USER", "admin")
-    env_pass = os.getenv("CHAINLIT_PASS", "admin")
-
-    if username == env_user and password == env_pass:
-        return cl.User(identifier=username)
     return cl.User(identifier=username)

@@ -21,12 +21,12 @@
             "title": "Welcome to the Agora!!",
             "form": {
                 "email": {
-                    "label": "Write admin here",
+                    "label": "Just write your name. Signing up is not required.",
                     "required": "email is a required field",
                     "placeholder": "admin"
                 },
                 "password": {
-                    "label": "Write admin again, don't be lazy!",
+                    "label": "Write your name again, don't be lazy!",
                     "placeholder": "admin",
                     "required": "password is a required field"
                 },
