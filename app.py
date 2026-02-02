@@ -1,11 +1,11 @@
 import os
-import ssl
+#import ssl
 import psycopg
 import chainlit as cl
 from dotenv import load_dotenv
 
 # Database and LangChain imports
-from chainlit.data.sql_alchemy import SQLAlchemyDataLayer
+#from chainlit.data.sql_alchemy import SQLAlchemyDataLayer
 from chainlit.input_widget import Switch, Select
 from langchain.chat_models import init_chat_model
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
@@ -32,25 +32,25 @@ model = init_chat_model(
     temperature=0.8,
 )
 
-@cl.data_layer
-def get_data_layer():
-    """
-    Setup the persistence layer for Chainlit's UI history.
-    Neon/Postgres requires specific SSL handling.
-    """
-    raw_url = DATABASE_URL
-    if "?" in raw_url:
-        raw_url = raw_url.split("?")[0]
+# @cl.data_layer
+# def get_data_layer():
+#     """
+#     Setup the persistence layer for Chainlit's UI history.
+#     Neon/Postgres requires specific SSL handling.
+#     """
+#     raw_url = DATABASE_URL
+#     if "?" in raw_url:
+#         raw_url = raw_url.split("?")[0]
 
-    # asyncpg needs a proper ssl context object, it hates sslmode in the string
-    ssl_context = ssl.create_default_context()
-    ssl_context.check_hostname = False
-    ssl_context.verify_mode = ssl.CERT_NONE
+#     # asyncpg needs a proper ssl context object, it hates sslmode in the string
+#     ssl_context = ssl.create_default_context()
+#     ssl_context.check_hostname = False
+#     ssl_context.verify_mode = ssl.CERT_NONE
     
-    return SQLAlchemyDataLayer(
-        conninfo=raw_url.replace("postgresql://", "postgresql+asyncpg://"),
-        connect_args={"ssl": ssl_context}
-    )
+#     return SQLAlchemyDataLayer(
+#         conninfo=raw_url.replace("postgresql://", "postgresql+asyncpg://"),
+#         connect_args={"ssl": ssl_context}
+#     )
 
 # --- GRAPH ORCHESTRATION ---
 
