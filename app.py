@@ -196,6 +196,3 @@ async def on_chat_end():
     if conn:
         await conn.close()
 
-@cl.password_auth_callback
-def auth(username, password):
-    return cl.User(identifier=username)
