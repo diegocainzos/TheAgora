@@ -32,6 +32,7 @@ model = init_chat_model(
     temperature=0.8,
 )
 
+<<<<<<< HEAD
 # @cl.data_layer
 # def get_data_layer():
 #     """
@@ -41,6 +42,17 @@ model = init_chat_model(
 #     raw_url = DATABASE_URL
 #     if "?" in raw_url:
 #         raw_url = raw_url.split("?")[0]
+=======
+@cl.data_layer
+def get_data_layer():
+    """
+    Setup the persistence layer for Chainlit f history.
+    Neon/Postgres requires specific SSL handling.
+    """
+    raw_url = DATABASE_URL
+    if "?" in raw_url:
+        raw_url = raw_url.split("?")[0]
+>>>>>>> 7dbe58a (Welcome Message Adjustment)
 
 #     # asyncpg needs a proper ssl context object, it hates sslmode in the string
 #     ssl_context = ssl.create_default_context()
@@ -149,7 +161,7 @@ async def start():
     await update_graph_session(defaults, rounds=1)
 
     # sending a warm and welcoming message
-    welcome_message = "Welcome to the Agora. You are about to be roasted by the greatest minds in history. This is radical therapy: no excuses, no filters. Configure your philosophers in the settings (top right) and tell us: what is bothering your existence today?"
+    welcome_message = "Welcome to the Agora. Configure your philosophers in the settings and tell us: what topic would you like to be discussed?"
     await cl.Message(content=f"Hello {welcome_message}", author="Diego").send()
     
 
