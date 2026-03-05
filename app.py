@@ -149,7 +149,7 @@ async def start():
     await update_graph_session(defaults, rounds=1)
 
     # sending a warm and welcoming message
-    welcome_message = "Welcome to the Agora. Configure your philosophers in the settings and tell us: what topic would you like to be discussed?"
+    welcome_message = "Welcome to the Agora. You are about to be roasted by the greatest minds in history. This is radical therapy: no excuses, no filters. Configure your philosophers in the settings (top right) and tell us: what is bothering your existence today?"
     await cl.Message(content=f"Hello {welcome_message}", author="Diego").send()
     
 
@@ -196,3 +196,6 @@ async def on_chat_end():
     if conn:
         await conn.close()
 
+@cl.password_auth_callback
+def auth(username, password):
+    return cl.User(identifier=username)
